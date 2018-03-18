@@ -1,0 +1,69 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>4a28179b-4ef1-4b2d-8c95-d260f1cc7251</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>HappyPlace.py</StartupFile>
+    <SearchPath>services;models;repositories</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>HappyPlace</Name>
+    <RootNamespace>HappyPlace</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="HappyPlace.py" />
+    <Compile Include="models\estabelecimentoAlimenticio.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\estabelecimentoEspecializado.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\estabelecimentoHospedagem.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\municipio.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="repositories\municipioRepository.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="services\databaseService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="services\municipioService.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="models\" />
+    <Folder Include="C:\Users\menzen\OneDrive\Documents\Mestrado\Tecnicas de Programação\trabalho\source\trunk\HappyPlace\HappyPlace\csv\" />
+    <Folder Include="repositories\" />
+    <Folder Include="services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="conexaodb.cfg" />
+    <Content Include="csv\2017-categorizacao-v2.csv" />
+    <Content Include="csv\2017-mapa-turismo.csv" />
+    <Content Include="csv\MeiodeHospedagem201704TrimestreCadasturPJ.csv" />
+    <Content Include="csv\PrestadorEspecializadoemSegmentosTuristicos201704TrimestreCadasturPJ.csv" />
+    <Content Include="csv\RestaurantesCafeteriaseBares201704TrimestreCadasturPJ.csv" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
