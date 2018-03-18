@@ -42,8 +42,12 @@
     <Compile Include="services\municipioService.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="services\progressoService.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="csv\" />
     <Folder Include="models\" />
     <Folder Include="C:\Users\menzen\OneDrive\Documents\Mestrado\Tecnicas de Programação\trabalho\source\trunk\HappyPlace\HappyPlace\csv\" />
     <Folder Include="repositories\" />
@@ -51,11 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="conexaodb.cfg" />
-    <Content Include="csv\2017-categorizacao-v2.csv" />
-    <Content Include="csv\2017-mapa-turismo.csv" />
-    <Content Include="csv\MeiodeHospedagem201704TrimestreCadasturPJ.csv" />
-    <Content Include="csv\PrestadorEspecializadoemSegmentosTuristicos201704TrimestreCadasturPJ.csv" />
-    <Content Include="csv\RestaurantesCafeteriaseBares201704TrimestreCadasturPJ.csv" />
+    <Content Include="csv\especializados.csv" />
+    <Content Include="csv\municipios.csv" />
+    <Content Include="csv\hospedagem.csv" />
+    <Content Include="csv\restaurantes.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

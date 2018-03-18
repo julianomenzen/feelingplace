@@ -1,6 +1,7 @@
 import os
 
 from databaseService import *
+from municipioService import *
 
 
 stringconexao = ""
@@ -12,14 +13,16 @@ def criarEstruturaTabelas():
     print("Pressione qualquer tecla para continuar....")
     input()
 
-def importarMunicipios():
-    print("Opcao 2 escolhida....")
+def importarArquivos():
+    servicoMunicipio = municipioService()
+    servicoMunicipio.processarArquivo("csv\\municipios.csv");
+    input()
 
 def processarMenu(opcao):
     if (opcao == '1'):
         criarEstruturaTabelas()
     elif (opcao == '2'):
-        importarMunicipios()
+        importarArquivos()
 
 def menu():
 	nomes=[]
@@ -27,7 +30,7 @@ def menu():
 	while (escolha != '0'):
             os.system('cls||clear')
             print("Escolha uma opção:\n")
-            print("1 - Criar estrutura de tabelas\n2 - Importar Municipio \n\n0 - Sair")
+            print("1 - Criar estrutura de tabelas\n2 - Importar Arquivos \n\n0 - Sair")
             escolha = input()
             processarMenu(escolha)
 			

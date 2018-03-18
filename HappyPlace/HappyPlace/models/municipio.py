@@ -1,9 +1,9 @@
 class municipio(object):
     """description of class"""
-    municipio.uf = ""
-    municipio.regiao = ""
-    municipio.municipio = ""
-    municipio.categoria = ""
+    uf = ""
+    regiao = ""
+    municipio = ""
+    categoria = ""
 
     def __init__(self, uf, regiao, municipio, categoria):
       self.uf = uf
