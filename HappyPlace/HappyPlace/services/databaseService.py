@@ -79,3 +79,17 @@ def executarComando(comando):
 def criarTabelaMunicipio():
     comando = "create table if not exists municipio (id serial primary key, uf varchar(2), regiao varchar(512), municipio varchar(512), categoria varchar(1))"
     executarComando(comando)
+
+def criarTabelaHospedagens():
+    comando = " create table if not exists hospedagens (id serial primary key, razaosocial varchar(512), nomefantasia varchar(512), cnpj varchar(512), naturezajuridica varchar(512), datainicio varchar(512), porte varchar(512), situacao varchar(512), tipoatividade varchar(512), "
+    comando = comando + " subtipo varchar(512), cep varchar(512), uf varchar(2), localidade varchar(512), bairro varchar(512), logradouro varchar(512), telefone varchar(512), fax varchar(512), email2 varchar(512), email3 varchar(512), site varchar(512), "
+    comando = comando + " codigocertificado varchar(512), codigodescricaocnae varchar(512), uh varchar(512), uhacessiveis varchar(512), uhscaoguia varchar(512), uhstps varchar(512), totalleitos varchar(512), linguas varchar(512), segmentos varchar(512), servicos varchar(512), equipamentos varchar(512), latitude decimal(15,6), longitude decimal(15,6))"
+    executarComando(comando)
+
+def criarTabelaRestaurantes():
+    comando = "create table if not exists restaurantes (id serial primary key, razaosocial varchar(512) ,nomefantasia varchar(512) ,cnpj varchar(512) ,naturezajuridica varchar(512) ,datainicio varchar(512) ,porte varchar(512) ,situacao varchar(512) ,tipoatividade varchar(512) ,subtipo varchar(512) ,cep varchar(512) ,uf varchar(512) ,localidade varchar(512) ,bairro varchar(512) ,logradouro varchar(512) ,telefone varchar(512) ,fax varchar(512) ,email2 varchar(512) ,email3 varchar(512) ,site varchar(512) ,codigocertificado varchar(512) ,codigodescricaocnae varchar(512) ,capacidade varchar(512) , linguas varchar(512), latitude decimal(15,6), longitude decimal(15,6))"
+    executarComando(comando)
+
+def criarTabelaEspabelecimentosEspecializados():
+    comando = "create table if not exists especializados ( id serial primary key, razaosocial varchar(512) , nomefantasia varchar(512) ,cnpj varchar(512) , natureza varchar(512) ,datainicio varchar(512) , porte varchar(512) , situacao varchar(512) , tipoatividade varchar(512) , subtipo varchar(512) , cep varchar(512) , uf varchar(512) , localidade varchar(512) , bairro varchar(512) , logradouro varchar(512) , telefone varchar(512) , fax varchar(512) , email2 varchar(512) , email3 varchar(512) , site varchar(512) , certificado varchar(512) , codigodescricaocnae varchar(512) , servicos  varchar(512), segmento varchar(512) ,linguas varchar(512), latitude decimal(15,6), longitude decimal(15,6))"
+    executarComando(comando)

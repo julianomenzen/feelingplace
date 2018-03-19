@@ -33,16 +33,34 @@
     <Compile Include="models\municipio.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="repositories\hospesagemRepository.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="repositories\municipioRepository.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="repositories\restauranteRepository.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="repositories\servicosEspecializadosRepository.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="services\databaseService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="services\hospedagemService.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="services\municipioService.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="services\progressoService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="services\restauranteService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="services\servicosEspecializadosService.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
