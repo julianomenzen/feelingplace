@@ -25,15 +25,11 @@ def testarConexao():
     try:
         # read connection parameters
         params = config()
-        # connect to the PostgreSQL server
-        print('Connecting to the PostgreSQL database...')
         conn = psycopg2.connect(**params)
   
         # create a cursor
         cur = conn.cursor()
-        
-        # execute a statement
-        print('PostgreSQL database version:')
+
         cur.execute('SELECT version()')
  
         # display the PostgreSQL database server version
@@ -47,7 +43,6 @@ def testarConexao():
     finally:
         if conn is not None:
             conn.close()
-            print('Database connection closed.')
 
 def executarComando(comando):
     """ Connect to the PostgreSQL database server """
@@ -56,7 +51,6 @@ def executarComando(comando):
         # read connection parameters
         params = config()
         # connect to the PostgreSQL server
-        print('Connecting to the PostgreSQL database...')
         conn = psycopg2.connect(**params)
   
         # create a cursor
@@ -74,22 +68,25 @@ def executarComando(comando):
     finally:
         if conn is not None:
             conn.close()
-            print('Database connection closed.')
 
 def criarTabelaMunicipio():
-    comando = "create table if not exists municipio (id serial primary key, uf varchar(2), regiao varchar(512), municipio varchar(512), categoria varchar(1))"
+    comando = "create table if not exists municipio (id serial primary key, uf varchar(2), regiao varchar(512), municipio varchar(512), categoria varchar(1));"
+    comando = comando + "delete from municipio;"
     executarComando(comando)
 
 def criarTabelaHospedagens():
     comando = " create table if not exists hospedagens (id serial primary key, razaosocial varchar(512), nomefantasia varchar(512), cnpj varchar(512), naturezajuridica varchar(512), datainicio varchar(512), porte varchar(512), situacao varchar(512), tipoatividade varchar(512), "
     comando = comando + " subtipo varchar(512), cep varchar(512), uf varchar(2), localidade varchar(512), bairro varchar(512), logradouro varchar(512), telefone varchar(512), fax varchar(512), email2 varchar(512), email3 varchar(512), site varchar(512), "
-    comando = comando + " codigocertificado varchar(512), codigodescricaocnae varchar(512), uh varchar(512), uhacessiveis varchar(512), uhscaoguia varchar(512), uhstps varchar(512), totalleitos varchar(512), linguas varchar(512), segmentos varchar(512), servicos varchar(512), equipamentos varchar(512), latitude decimal(15,6), longitude decimal(15,6))"
+    comando = comando + " codigocertificado varchar(512), codigodescricaocnae varchar(512), uh varchar(512), uhacessiveis varchar(512), uhscaoguia varchar(512), uhstps varchar(512), totalleitos varchar(512), linguas varchar(512), segmentos varchar(512), servicos varchar(512), equipamentos varchar(512), latitude decimal(15,6), longitude decimal(15,6));"
+    comando = comando + "delete from hospedagens;"
     executarComando(comando)
 
 def criarTabelaRestaurantes():
-    comando = "create table if not exists restaurantes (id serial primary key, razaosocial varchar(512) ,nomefantasia varchar(512) ,cnpj varchar(512) ,naturezajuridica varchar(512) ,datainicio varchar(512) ,porte varchar(512) ,situacao varchar(512) ,tipoatividade varchar(512) ,subtipo varchar(512) ,cep varchar(512) ,uf varchar(512) ,localidade varchar(512) ,bairro varchar(512) ,logradouro varchar(512) ,telefone varchar(512) ,fax varchar(512) ,email2 varchar(512) ,email3 varchar(512) ,site varchar(512) ,codigocertificado varchar(512) ,codigodescricaocnae varchar(512) ,capacidade varchar(512) , linguas varchar(512), latitude decimal(15,6), longitude decimal(15,6))"
+    comando = "create table if not exists restaurantes (id serial primary key, razaosocial varchar(512) ,nomefantasia varchar(512) ,cnpj varchar(512) ,naturezajuridica varchar(512) ,datainicio varchar(512) ,porte varchar(512) ,situacao varchar(512) ,tipoatividade varchar(512) ,subtipo varchar(512) ,cep varchar(512) ,uf varchar(512) ,localidade varchar(512) ,bairro varchar(512) ,logradouro varchar(512) ,telefone varchar(512) ,fax varchar(512) ,email2 varchar(512) ,email3 varchar(512) ,site varchar(512) ,codigocertificado varchar(512) ,codigodescricaocnae varchar(512) ,capacidade varchar(512) , linguas varchar(512), latitude decimal(15,6), longitude decimal(15,6));"
+    comando = comando + "delete from restaurantes;"
     executarComando(comando)
 
 def criarTabelaEspabelecimentosEspecializados():
-    comando = "create table if not exists especializados ( id serial primary key, razaosocial varchar(512) , nomefantasia varchar(512) ,cnpj varchar(512) , natureza varchar(512) ,datainicio varchar(512) , porte varchar(512) , situacao varchar(512) , tipoatividade varchar(512) , subtipo varchar(512) , cep varchar(512) , uf varchar(512) , localidade varchar(512) , bairro varchar(512) , logradouro varchar(512) , telefone varchar(512) , fax varchar(512) , email2 varchar(512) , email3 varchar(512) , site varchar(512) , certificado varchar(512) , codigodescricaocnae varchar(512) , servicos  varchar(512), segmento varchar(512) ,linguas varchar(512), latitude decimal(15,6), longitude decimal(15,6))"
+    comando = "create table if not exists especializados ( id serial primary key, razaosocial varchar(512) , nomefantasia varchar(512) ,cnpj varchar(512) , natureza varchar(512) ,datainicio varchar(512) , porte varchar(512) , situacao varchar(512) , tipoatividade varchar(512) , subtipo varchar(512) , cep varchar(512) , uf varchar(512) , localidade varchar(512) , bairro varchar(512) , logradouro varchar(512) , telefone varchar(512) , fax varchar(512) , email2 varchar(512) , email3 varchar(512) , site varchar(512) , certificado varchar(512) , codigodescricaocnae varchar(512) , servicos  varchar(512), segmento varchar(512) ,linguas varchar(512), latitude decimal(15,6), longitude decimal(15,6));"
+    comando = comando + "delete from especializados;"
     executarComando(comando)

@@ -17,8 +17,10 @@ class municipioService(object):
             #identifica quantos registros o arquivo possuir
             with open(caminho) as f:
                 content = f.read().splitlines()
+                
 
             for linha in content:
+                linha = str.replace(linha, "'", " ")
                 if (i == 0):
                     i = i + 1
                     continue

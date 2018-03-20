@@ -15,28 +15,24 @@ def criarEstruturaTabelas():
     input()
 
 def importarEnderecos():
+    os.system('cls||clear')
     servicoMunicipio = municipioService()
     servicoMunicipio.processarArquivo("csv\\municipios.csv");
 
-    input()
-
 def importarHospedagens():
+    os.system('cls||clear')
     servicoHospesagem = hospedagemService()
     servicoHospesagem.processarArquivo("csv\\hospedagem.csv");
 
-    input()
-
 def importarRestaurantes():
+    os.system('cls||clear')
     servicoRestaurante = restauranteService()
     servicoRestaurante.processarArquivo("csv\\restaurantes.csv");
 
-    input()
-
 def importarEstabelecimentosEspecializados():
+    os.system('cls||clear')
     servicoEspecializado = servicosEspecialiadosService()
     servicoEspecializado.processarArquivo("csv\\especializados.csv");
-
-    input()
 
 
 def processarMenu(opcao):
@@ -50,6 +46,11 @@ def processarMenu(opcao):
         importarRestaurantes()
     elif (opcao == '5'):
         importarEstabelecimentosEspecializados()
+    elif (opcao == '6'):
+        importarEnderecos()
+        importarHospedagens()
+        importarRestaurantes()
+        importarEstabelecimentosEspecializados()
 
 def menu():
 	nomes=[]
@@ -57,7 +58,7 @@ def menu():
 	while (escolha != '0'):
             os.system('cls||clear')
             print("Escolha uma opção:\n")
-            print("1 - Criar estrutura de tabelas\n2 - Importar Endereços\n3 - Importar Hospedagens\n4 - Importar Restaurantes\n5 - Importar Estabelecimentos Especializados \n\n0 - Sair")
+            print("1 - Criar estrutura de tabelas\n2 - Importar Endereços\n3 - Importar Hospedagens\n4 - Importar Restaurantes\n5 - Importar Estabelecimentos Especializados\n6 - Importar tudo \n\n0 - Sair")
             escolha = input()
             processarMenu(escolha)
 			
