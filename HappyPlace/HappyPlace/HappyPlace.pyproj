@@ -66,8 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="csv\" />
-    <Folder Include="models\" />
-    <Folder Include="C:\Users\menzen\OneDrive\Documents\Mestrado\Tecnicas de Programação\trabalho\source\trunk\HappyPlace\HappyPlace\csv\" />
+    <Folder Include="models\" />    
     <Folder Include="bi\" />
     <Folder Include="repositories\" />
     <Folder Include="services\" />
