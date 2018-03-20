@@ -1,0 +1,11 @@
+Pendencias
+Etapa 1:
+--Conseguir o nome correto das cidades pelo cep nos restaurantes, hospedagens e estabelecimentos especiais;
+--Conseguir a latitude e longitude dos restaurantes, hospesagens e estabelecimentos especiais;
+Etapa 2:
+--Montar uma consulta de BI com as informações consolidadas
+Etapa 3:
+--Obter as hastags de cada estabelecimento pelo instagram
+Etapa 4:
+--Utilizar estas hastags para identificar o sentimento geral das pessoas naquele local
+--Exibir esta informação adequadamente

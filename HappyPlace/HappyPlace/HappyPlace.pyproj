@@ -66,7 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="csv\" />
-    <Folder Include="models\" />    
+    <Folder Include="models\" />
     <Folder Include="bi\" />
     <Folder Include="repositories\" />
     <Folder Include="services\" />
@@ -78,6 +78,7 @@
     <Content Include="csv\municipios.csv" />
     <Content Include="csv\hospedagem.csv" />
     <Content Include="csv\restaurantes.csv" />
+    <Content Include="tarefas.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
