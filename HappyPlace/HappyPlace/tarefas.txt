@@ -1,7 +1,13 @@
-Pendencias
+	Pendencias
 Etapa 1:
 --Conseguir o nome correto das cidades pelo cep nos restaurantes, hospedagens e estabelecimentos especiais;
+  Instalar suds -> pip3 install suds-py3
+
 --Conseguir a latitude e longitude dos restaurantes, hospesagens e estabelecimentos especiais;
+  Instalar requests -> pip3 install requests
+  Tem que ter o token... quando expirar, vai ser solicitado um novo... ai só gerar e colocar lá
+
+
 Etapa 2:
 --Montar uma consulta de BI com as informações consolidadas
 Etapa 3:

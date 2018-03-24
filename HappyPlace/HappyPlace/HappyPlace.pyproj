@@ -5,11 +5,13 @@
     <ProjectGuid>4a28179b-4ef1-4b2d-8c95-d260f1cc7251</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>HappyPlace.py</StartupFile>
-    <SearchPath>services;models;repositories</SearchPath>
+    <SearchPath>services;models;repositories;external_service;utils</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>HappyPlace</Name>
     <RootNamespace>HappyPlace</RootNamespace>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +22,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="external_service\correiosWebService.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="external_service\googleMapsWebService.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="HappyPlace.py" />
     <Compile Include="models\estabelecimentoAlimenticio.py">
       <SubType>Code</SubType>
@@ -63,11 +71,17 @@
     <Compile Include="services\servicosEspecializadosService.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="utils\funcoesString.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="csv\" />
+    <Folder Include="external_service\" />
     <Folder Include="models\" />
     <Folder Include="bi\" />
+    <Folder Include="C:\Temp\feelingplace\HappyPlace\HappyPlace\external_service\" />
+    <Folder Include="utils\" />
     <Folder Include="repositories\" />
     <Folder Include="services\" />
   </ItemGroup>

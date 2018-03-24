@@ -24,7 +24,8 @@ class estabelecimentosEspecializados(object):
     servicos = ""
     segmento = ""
     linguas = ""
-
+    latitude = 0.0
+    longitude = 0.0
     def __init__(self, razaosocial, nomefantasia, cnpj, natureza, datainicio, porte, situacao, tipoatividade, subtipo, cep, uf, localidade, bairro, logradouro, telefone, fax, email2, email3, site, certificado, codigodescricaocnae, servicos, segmento, linguas):
         self.razaosocial = razaosocial 
         self.nomefantasia = nomefantasia

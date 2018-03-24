@@ -2,11 +2,23 @@ from pathlib import Path
 from progressoService import *
 from estabelecimentoHospedagem import *
 from hospesagemRepository import *
-
+from correiosWebService import *
+from googleMapsWebService import * 
+from funcoesString import *
 class hospedagemService(object):
     """description of class"""
+    def buscarCidadeLatLong(self, service_correios, hospesagemLinha):
+        cidade = service_correios.buscar_cidade_por_cep(funcoesString.somenteNumeros(hospesagemLinha.cep))
+        if (cidade.strip() != ''):
+            hospesagemLinha.localidade = cidade
+                    
+        local = googleMapsWebService.retornarLatitudeLongitude(hospesagemLinha.logradouro, hospesagemLinha.bairro, hospesagemLinha.localidade, hospesagemLinha.uf)
+        if (local != ""):
+            hospesagemLinha.latitude = local['lat']
+            hospesagemLinha.longitude = local['lng']
 
     def processarArquivo(self, caminho):
+        service_correios = correiosWebService()
         repositorio = hospesagemRepository()
         i = 0
         hospedagens = Path(caminho)
@@ -32,6 +44,7 @@ class hospedagemService(object):
                             x.append("")
        
                     hospesagemLinha = hospedagem(x[0],x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8], x[9], x[10], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[18], x[19], x[20], x[21], x[22], x[23], x[24], x[25], x[26], x[27], x[28], x[29])
+                    self.buscarCidadeLatLong(service_correios, hospesagemLinha)
                     repositorio.inserir(hospesagemLinha)
                     atualizarProgresso("Hospedagens", i, len(content))
                 i = i + 1

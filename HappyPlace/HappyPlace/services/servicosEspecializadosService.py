@@ -2,10 +2,24 @@ from pathlib import Path
 from progressoService import *
 from estabelecimentoEspecializado import *
 from servicosEspecializadosRepository import *
-
+from correiosWebService import *
+from googleMapsWebService import * 
+from funcoesString import *
 class servicosEspecialiadosService(object):
     """description of class"""
+    
+    def buscarCidadeLatLong(self, service_correios, estabelecimentoLinha):
+        cidade = service_correios.buscar_cidade_por_cep(funcoesString.somenteNumeros(estabelecimentoLinha.cep))
+        if (cidade.strip() != ''):
+            estabelecimentoLinha.localidade = cidade
+                    
+        local = googleMapsWebService.retornarLatitudeLongitude(estabelecimentoLinha.logradouro, estabelecimentoLinha.bairro, estabelecimentoLinha.localidade, estabelecimentoLinha.uf)
+        if (local != ""):
+            estabelecimentoLinha.latitude = local['lat']
+            estabelecimentoLinha.longitude = local['lng']
+
     def processarArquivo(self, caminho):
+        service_correios = correiosWebService()
         repositorio = servicosEspecializadosRepository()
         i = 0
         estabelecimentos = Path(caminho)
@@ -29,8 +43,13 @@ class servicosEspecialiadosService(object):
                         while j < 23:
                             j = j + 1
                             x.append("")
-
+                                        
                     estabelecimentoLinha = estabelecimentosEspecializados(x[0],x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8], x[9], x[10], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[18], x[19], x[20], x[21], x[22], x[22])
+                    self.buscarCidadeLatLong(service_correios, estabelecimentoLinha)
+
                     repositorio.inserir(estabelecimentoLinha)
                     atualizarProgresso("Estabelecimentos Especializados", i, len(content))
                 i = i + 1
+
+    
+        

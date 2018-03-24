@@ -30,7 +30,8 @@ class hospedagem(object):
     segmentos = ""
     servicos = ""
     equipamentos = ""
-    
+    latitude = 0.0
+    longitude = 0.0
     def __init__(self, razaosocial, nomefantasia, cnpj, naturezajuridica , datainicio, porte , situacao , tipoatividade, subtipo , cep , uf , localidade , bairro , logradouro , telefone , fax , email2 , email3 , site , codigocertificado , codigodescricaocnae , uh , uhacessiveis , uhscaoguia ,  uhstps , totalleitos , linguas , segmentos , servicos , equipamentos):
         self.razaosocial = razaosocial
         self.nomefantasia = nomefantasia
