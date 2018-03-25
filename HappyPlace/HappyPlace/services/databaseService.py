@@ -61,17 +61,18 @@ def executarComando(comando):
 
         conn.commit()
   
-        # close the communication with the PostgreSQL
-        cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
     finally:
+        if cur is not None:
+            cur.close()
         if conn is not None:
             conn.close()
 
 def RegistroExite(comando):
     """ Connect to the PostgreSQL database server """
     conn = None
+    cur = None
     try:
         # read connection parameters
         params = config()
@@ -91,12 +92,12 @@ def RegistroExite(comando):
             existe = False
         
         return existe
-        # close the communication with the PostgreSQL
-        cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
         return False
     finally:
+        if cur is not None:
+            cur.close()
         if conn is not None:
             conn.close()
         
