@@ -1,4 +1,5 @@
 import os
+from tokensGoogle import tokensGoogle
 
 from databaseService import *
 from municipioService import *
@@ -21,38 +22,42 @@ def importarEnderecos():
     servicoMunicipio = municipioService()
     servicoMunicipio.processarArquivo("csv\\municipios.csv");
 
-def importarHospedagens():
+def importarHospedagens(tokens):
     os.system('cls||clear')
     servicoHospesagem = hospedagemService()
-    servicoHospesagem.processarArquivo("csv\\hospedagem.csv");
+    servicoHospesagem.processarArquivo("csv\\hospedagem.csv", tokens);
 
-def importarRestaurantes():
+def importarRestaurantes(tokens):
     os.system('cls||clear')
     servicoRestaurante = restauranteService()
-    servicoRestaurante.processarArquivo("csv\\restaurantes.csv");
+    servicoRestaurante.processarArquivo("csv\\restaurantes.csv", tokens);
 
-def importarEstabelecimentosEspecializados():
+def importarEstabelecimentosEspecializados(tokens):
     os.system('cls||clear')
     servicoEspecializado = servicosEspecialiadosService()
-    servicoEspecializado.processarArquivo("csv\\especializados.csv");
+    servicoEspecializado.processarArquivo("csv\\especializados.csv", tokens);
 
 
 def processarMenu(opcao):
+    tokens = tokensGoogle()
+
     if (opcao == '1'):
         criarEstruturaTabelas()
     elif (opcao == '2'):
         importarEnderecos()
     elif (opcao == '3'):
-        importarHospedagens()
+        importarHospedagens(tokens)
     elif (opcao == '4'):
-        importarRestaurantes()
+        importarRestaurantes(tokens)
     elif (opcao == '5'):
-        importarEstabelecimentosEspecializados()
+        importarEstabelecimentosEspecializados(tokens)
     elif (opcao == '6'):
         importarEnderecos()
-        importarHospedagens()
-        importarRestaurantes()
-        importarEstabelecimentosEspecializados()
+        importarHospedagens(tokens)
+        importarRestaurantes(tokens)
+        importarEstabelecimentosEspecializados(tokens)
+        #teste
+
 
 def menu():
 	nomes=[]

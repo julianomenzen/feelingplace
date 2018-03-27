@@ -7,17 +7,17 @@ from googleMapsWebService import *
 from funcoesString import *
 class restauranteService(object):
     """description of class"""
-    def buscarCidadeLatLong(self, service_correios, restauranteLinha):
+    def buscarCidadeLatLong(self, service_correios, restauranteLinha, tokens):
         cidade = service_correios.buscar_cidade_por_cep(funcoesString.somenteNumeros(restauranteLinha.cep))
         if (cidade.strip() != ''):
             restauranteLinha.localidade = cidade
                     
-        local = googleMapsWebService.retornarLatitudeLongitude(restauranteLinha.logradouro, restauranteLinha.bairro, restauranteLinha.localidade, restauranteLinha.uf)
+        local = googleMapsWebService.retornarLatitudeLongitude(restauranteLinha.logradouro, restauranteLinha.bairro, restauranteLinha.localidade, restauranteLinha.uf, tokens)
         if (local != ""):
             restauranteLinha.latitude = local['lat']
             restauranteLinha.longitude = local['lng']
 
-    def processarArquivo(self, caminho):
+    def processarArquivo(self, caminho, tokens):
         service_correios = correiosWebService()
         repositorio = restauranteRepository()
         i = 0
@@ -44,7 +44,7 @@ class restauranteService(object):
                             x.append("")
 
                     restauranteLinha = estabelecimentosAlimenticios(x[0],x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8], x[9], x[10], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[18], x[19], x[20], x[21], x[22])
-                    self.buscarCidadeLatLong(service_correios, restauranteLinha)
+                    self.buscarCidadeLatLong(service_correios, restauranteLinha, tokens)
                     repositorio.inserir(restauranteLinha)
                     atualizarProgresso("Restaurantes", i, len(content))
                 i = i + 1

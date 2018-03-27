@@ -10,8 +10,37 @@ Etapa 1:
 
 Etapa 2:
 --Montar uma consulta de BI com as informações consolidadas
+-- Construir as views:
+
+create or replace  view vw_restaurantes
+as
+(
+select restaurantes.*, municipio.regiao
+from restaurantes left join municipio on restaurantes.uf = municipio.uf and restaurantes.localidade = municipio.municipio
+    where restaurantes.latitude <> 0
+);
+
+create or replace  view vw_hospedagens
+as
+(
+select hospedagens.*, municipio.regiao
+from hospedagens left join municipio on hospedagens.uf = municipio.uf and hospedagens.localidade = municipio.municipio
+     where hospedagens.latitude <> 0
+);
+
+create or replace view vw_especializados
+as
+(
+select especializados.*, municipio.regiao
+from especializados left join municipio on especializados.uf = municipio.uf and especializados.localidade = municipio.municipio
+     where especializados.latitude <> 0
+);
+
+
+
 Etapa 3:
 --Obter as hastags de cada estabelecimento pelo instagram
 Etapa 4:
 --Utilizar estas hastags para identificar o sentimento geral das pessoas naquele local
 --Exibir esta informação adequadamente
+ola

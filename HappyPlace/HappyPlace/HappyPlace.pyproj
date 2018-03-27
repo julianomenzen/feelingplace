@@ -41,6 +41,9 @@
     <Compile Include="models\municipio.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="models\tokensGoogle.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="repositories\hospesagemRepository.py">
       <SubType>Code</SubType>
     </Compile>
@@ -80,7 +83,6 @@
     <Folder Include="external_service\" />
     <Folder Include="models\" />
     <Folder Include="bi\" />
-    <Folder Include="C:\Temp\feelingplace\HappyPlace\HappyPlace\external_service\" />
     <Folder Include="utils\" />
     <Folder Include="repositories\" />
     <Folder Include="services\" />
