@@ -20,6 +20,7 @@ class hospedagemService(object):
 
     def processarArquivo(self, caminho):
         service_correios = correiosWebService()
+        repositorio = hospesagemRepository()
         i = 0
         hospedagens = Path(caminho)
         #verifica se o arquivo existe
@@ -51,16 +52,16 @@ class hospedagemService(object):
                             x.append("")
        
                     hospesagemLinha = hospedagem(x[0],x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8], x[9], x[10], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[18], x[19], x[20], x[21], x[22], x[23], x[24], x[25], x[26], x[27], x[28], x[29])
-                    t = Thread(target=self.salvarHospedagem,args=[service_correios, hospesagemLinha, i, content])
-                    t.start()
-                    threads.append(t)
+                    if (not repositorio.validaExistePorCNPJ(hospesagemLinha.cnpj)):
+                        t = Thread(target=self.salvarHospedagem,args=[service_correios, hospesagemLinha, i, content, repositorio])
+                        t.start()
+                        threads.append(t)
                     #self.salvarHospedagem(service_correios, hospesagemLinha, i, content)
                     
                 i = i + 1
 
-    def salvarHospedagem(self, service_correios, hospesagemLinha, i, content):
+    def salvarHospedagem(self, service_correios, hospesagemLinha, i, content, repositorio):
         #Será que vai dar desempenho? Me pareceu que sim!
-        repositorio = hospesagemRepository()
         self.buscarCidadeLatLong(service_correios, hospesagemLinha)
         repositorio.inserir(hospesagemLinha)
         atualizarProgresso("Hospedagens", i, len(content))
