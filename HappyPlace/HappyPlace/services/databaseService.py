@@ -122,3 +122,12 @@ def criarTabelaEspabelecimentosEspecializados():
     comando = "create table if not exists especializados ( id serial primary key, razaosocial varchar(512) , nomefantasia varchar(512) ,cnpj varchar(512) , natureza varchar(512) ,datainicio varchar(512) , porte varchar(512) , situacao varchar(512) , tipoatividade varchar(512) , subtipo varchar(512) , cep varchar(512) , uf varchar(512) , localidade varchar(512) , bairro varchar(512) , logradouro varchar(512) , telefone varchar(512) , fax varchar(512) , email2 varchar(512) , email3 varchar(512) , site varchar(512) , certificado varchar(512) , codigodescricaocnae varchar(512) , servicos  varchar(512), segmento varchar(512) ,linguas varchar(512), latitude decimal(15,6), longitude decimal(15,6));"
     comando = comando + "delete from especializados;"
     executarComando(comando)
+
+def criarTabelaTags():
+    comando = "create table tags (id serial, latitude decimal(15,6), longitude decimal(15,6), cnpj varchar(512), tag varchar(512));"
+    comando = comando + "delete from tags";
+    executarComando(comando)
+
+
+
+    

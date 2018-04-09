@@ -13,6 +13,7 @@ def criarEstruturaTabelas():
     criarTabelaHospedagens()
     criarTabelaRestaurantes()
     criarTabelaEspabelecimentosEspecializados()
+    criarTabelaTags()
     print("Tabelas criadas....")
     print("Pressione qualquer tecla para continuar....")
     input()
