@@ -1,10 +1,10 @@
 import os
 from tokensGoogle import tokensGoogle
-
 from databaseService import *
 from municipioService import *
 from hospedagemService import *
 from restauranteService import *
+
 from servicosEspecializadosService import *
 
 def criarEstruturaTabelas():
@@ -40,7 +40,7 @@ def importarEstabelecimentosEspecializados(tokens):
 
 def processarMenu(opcao):
     tokens = tokensGoogle()
-
+    
     if (opcao == '1'):
         criarEstruturaTabelas()
     elif (opcao == '2'):
@@ -51,7 +51,9 @@ def processarMenu(opcao):
         importarRestaurantes(tokens)
     elif (opcao == '5'):
         importarEstabelecimentosEspecializados(tokens)
-    elif (opcao == '6'):
+    elif (opcao == '5'):
+        importarEstabelecimentosEspecializados(tokens)
+    elif (opcao == '7'):
         importarEnderecos()
         importarHospedagens(tokens)
         importarRestaurantes(tokens)
@@ -65,7 +67,7 @@ def menu():
 	while (escolha != '0'):
             os.system('cls||clear')
             print("Escolha uma opção:\n")
-            print("1 - Criar estrutura de tabelas\n2 - Importar Endereços\n3 - Importar Hospedagens\n4 - Importar Restaurantes\n5 - Importar Estabelecimentos Especializados\n6 - Importar tudo \n\n0 - Sair")
+            print("1 - Criar estrutura de tabelas\n2 - Importar Endereços\n3 - Importar Hospedagens\n4 - Importar Restaurantes\n5 - Importar Estabelecimentos Especializados\n6 - Importar dados do Instagram\n7 - Importar tudo \n\n0 - Sair")
             escolha = input()
             processarMenu(escolha)
 			
