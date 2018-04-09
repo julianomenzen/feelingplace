@@ -50,6 +50,9 @@
     <Compile Include="repositories\hospesagemRepository.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="repositories\instagramRepository.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="repositories\municipioRepository.py">
       <SubType>Code</SubType>
     </Compile>
