@@ -68,6 +68,7 @@
     <Compile Include="services\hospedagemService.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="services\instagramService.py" />
     <Compile Include="services\municipioService.py">
       <SubType>Code</SubType>
     </Compile>
