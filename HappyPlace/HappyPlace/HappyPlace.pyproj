@@ -38,6 +38,9 @@
     <Compile Include="models\estabelecimentoHospedagem.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="models\instragram.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="models\municipio.py">
       <SubType>Code</SubType>
     </Compile>
