@@ -68,4 +68,4 @@ class hospedagemService(object):
 
     def selecionarHospedagens(self):
         repositorio = hospesagemRepository()
-        repositorio.consultarTudo()
+        return repositorio.consultarTudo()
