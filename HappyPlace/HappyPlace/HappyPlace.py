@@ -4,7 +4,7 @@ from databaseService import *
 from municipioService import *
 from hospedagemService import *
 from restauranteService import *
-
+from instagramService import *
 from servicosEspecializadosService import *
 
 def criarEstruturaTabelas():
@@ -38,6 +38,9 @@ def importarEstabelecimentosEspecializados(tokens):
     servicoEspecializado = servicosEspecialiadosService()
     servicoEspecializado.processarArquivo("csv\\especializados.csv", tokens);
 
+def importarTags():
+   servicoInstagram = instagramService()
+   servicoInstagram.importarTags()
 
 def processarMenu(opcao):
     tokens = tokensGoogle()
@@ -54,6 +57,8 @@ def processarMenu(opcao):
         importarEstabelecimentosEspecializados(tokens)
     elif (opcao == '5'):
         importarEstabelecimentosEspecializados(tokens)
+    elif (opcao == '6'):
+        importarTags()
     elif (opcao == '7'):
         importarEnderecos()
         importarHospedagens(tokens)

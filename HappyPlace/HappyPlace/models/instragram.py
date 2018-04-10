@@ -11,10 +11,8 @@ class instragram(object):
         self.cnpj = cnpj
         self.tag = tag
 
-    @staticmethod
-    def token(self):
-        tokens = []
-        tokens.append("4255763955.a56a369.89af9b5c9c2a4b7f99849f41c1145d9a");
-        return tokens
-
-
+    @staticmethod 
+    def tokensCadastrados():
+        listTokens = []
+        listTokens.append("4255763955.a56a369.89af9b5c9c2a4b7f99849f41c1145d9a");
+        return listTokens

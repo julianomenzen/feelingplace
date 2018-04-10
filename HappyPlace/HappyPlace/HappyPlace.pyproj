@@ -28,6 +28,9 @@
     <Compile Include="external_service\googleMapsWebService.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="external_service\instagramWebService.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="HappyPlace.py" />
     <Compile Include="models\estabelecimentoAlimenticio.py">
       <SubType>Code</SubType>
