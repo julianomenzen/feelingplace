@@ -66,6 +66,6 @@ class hospedagemService(object):
         repositorio.inserir(hospesagemLinha)
         atualizarProgresso("Hospedagens", i, len(content))
 
-    def selecionarHospedagens(self):
+    def selecionarHospedagens():
         repositorio = hospesagemRepository()
         return repositorio.consultarTudo()

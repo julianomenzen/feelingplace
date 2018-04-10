@@ -48,3 +48,7 @@ class restauranteService(object):
                     repositorio.inserir(restauranteLinha)
                     atualizarProgresso("Restaurantes", i, len(content))
                 i = i + 1
+
+    def selecionarRestaurantes():
+        repositorio = restauranteRepository()
+        return repositorio.consultarTudo()

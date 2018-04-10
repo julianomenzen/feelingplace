@@ -52,5 +52,9 @@ class servicosEspecialiadosService(object):
                     atualizarProgresso("Estabelecimentos Especializados", i, len(content))
                 i = i + 1
 
+    def selecionarEstabelecimentosEspecializados():
+        repositorio = servicosEspecializadosRepository()
+        return repositorio.consultarTudo()
+
     
         
