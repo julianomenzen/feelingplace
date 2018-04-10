@@ -65,3 +65,7 @@ class hospedagemService(object):
         self.buscarCidadeLatLong(service_correios, hospesagemLinha, tokens)
         repositorio.inserir(hospesagemLinha)
         atualizarProgresso("Hospedagens", i, len(content))
+
+    def selecionarHospedagens(self):
+        repositorio = hospesagemRepository()
+        repositorio.consultarTudo()

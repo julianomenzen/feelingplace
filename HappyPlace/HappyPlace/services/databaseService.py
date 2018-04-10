@@ -100,6 +100,37 @@ def RegistroExite(comando):
             cur.close()
         if conn is not None:
             conn.close()
+
+def SelecionarRegistros(comando):
+    """ Connect to the PostgreSQL database server """
+    conn = None
+    cur = None
+    try:
+        # read connection parameters
+        params = config()
+        # connect to the PostgreSQL server
+        conn = psycopg2.connect(**params)
+  
+        # create a cursor
+        cur = conn.cursor()
+        
+        # execute a statement
+        cur.execute(comando)
+
+        try:
+            return cur.fetchall()
+        except :
+            existe = False
+        
+        return existe
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+        return False
+    finally:
+        if cur is not None:
+            cur.close()
+        if conn is not None:
+            conn.close()
         
 def criarTabelaMunicipio():
     comando = "create table if not exists municipio (id serial primary key, uf varchar(2), regiao varchar(512), municipio varchar(512), categoria varchar(1));"
