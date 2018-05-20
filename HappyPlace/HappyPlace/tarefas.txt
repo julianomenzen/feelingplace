@@ -36,6 +36,22 @@ from especializados left join municipio on especializados.uf = municipio.uf and 
      where especializados.latitude <> 0
 );
 
+create view vw_unificada
+as
+(
+select 'Especializados' as tipo, nomefantasia, cnpj, uf, localidade, bairro, logradouro, cep, latitude, longitude, regiao from vw_especializados
+    union all
+select 'Hospedagens' as tipo, nomefantasia, cnpj, uf, localidade, bairro, logradouro, cep, latitude, longitude, regiao from vw_hospedagens
+    union all
+select 'Restaurantes' as tipo, nomefantasia, cnpj, uf, localidade, bairro, logradouro, cep, latitude, longitude, regiao from vw_restaurantes
+);
+
+create view vw_unificada_tags
+as
+(
+select vw_unificada.*, tags.tag from vw_unificada
+    left join tags on vw_unificada.cnpj = tags.cnpj
+);
 
 
 Etapa 3:
