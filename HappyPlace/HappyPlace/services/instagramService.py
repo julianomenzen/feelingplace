@@ -13,28 +13,37 @@ class instagramService(object):
     
     def importarTagsHospedagem(self):
         servicehospedagem = hospedagemService() 
+        print("Buscando hospedagens:")
         hospedagens = servicehospedagem.selecionarHospedagens()
         
         for h in hospedagens:
+            print(hospedagens.index(h) + 1, len(hospedagens), sep="/", end=" - ")
             tags = self.importarPorCNPJLatitudeLongitude(h.cnpj, h.latitude, h.latitude)
+            print(len(tags), "tags encontradas")
             for t in tags:
                 self.salvarTags(t)
 
     def importarTagsRestaurante(self):
         serviceRestaurante = restauranteService() 
+        print("Buscando restaurantes:")
         restaurantes = serviceRestaurante.selecionarRestaurantes()
         
         for r in restaurantes:
+            print(restaurantes.index(r) + 1, len(restaurantes), sep="/", end=" - ")
             tags = self.importarPorCNPJLatitudeLongitude(r.cnpj, r.latitude, r.latitude)
+            print(len(tags), "tags encontradas")
             for t in tags:
                 self.salvarTags(t)
 
     def importarServicosEspecialiados(self):
         serviceServicosEspecialiados = servicosEspecialiadosService() 
+        print("Buscando servicos especializados:")
         servicosEspecializados = serviceServicosEspecialiados.selecionarEstabelecimentosEspecializados()
         
         for s in servicosEspecializados:
+            print(servicosEspecializados.index(s) + 1, len(servicosEspecializados), sep="/", end=" - ")
             tags = self.importarPorCNPJLatitudeLongitude(s.cnpj, s.latitude, s.latitude)
+            print(len(tags), "tags encontradas")
             for t in tags:
                 self.salvarTags(t)
 
