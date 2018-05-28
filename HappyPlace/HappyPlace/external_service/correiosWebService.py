@@ -10,4 +10,4 @@ class correiosWebService:
         try:
             return self.client.service.consultaCEP(cep).cidade
         except :
-            return ""
+            return "" 
