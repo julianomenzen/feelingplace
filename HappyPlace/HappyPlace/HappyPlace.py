@@ -6,6 +6,7 @@ from hospedagemService import *
 from restauranteService import *
 from instagramService import *
 from servicosEspecializadosService import *
+from toneAnalyserService import *
 
 def criarEstruturaTabelas():
     print("Criando tabelas...")
@@ -42,6 +43,11 @@ def importarTags():
    servicoInstagram = instagramService()
    servicoInstagram.importarTags()
 
+def importarSentimentos():
+    servicoToneAnalyser = toneAnalyserService()
+    servicoToneAnalyser.importarSentimentos()
+
+
 def processarMenu(opcao):
     tokens = tokensGoogle()
     
@@ -60,6 +66,8 @@ def processarMenu(opcao):
     elif (opcao == '6'):
         importarTags()
     elif (opcao == '7'):
+        importarSentimentos()
+    elif (opcao == '8'):
         importarEnderecos()
         importarHospedagens(tokens)
         importarRestaurantes(tokens)
@@ -73,7 +81,7 @@ def menu():
 	while (escolha != '0'):
             os.system('cls||clear')
             print("Escolha uma opção:\n")
-            print("1 - Criar estrutura de tabelas\n2 - Importar Endereços\n3 - Importar Hospedagens\n4 - Importar Restaurantes\n5 - Importar Estabelecimentos Especializados\n6 - Importar dados do Instagram\n7 - Importar tudo \n\n0 - Sair")
+            print("1 - Criar estrutura de tabelas\n2 - Importar Endereços\n3 - Importar Hospedagens\n4 - Importar Restaurantes\n5 - Importar Estabelecimentos Especializados\n6 - Importar dados do Instagram\n7 - Importar Sentimentos Bluemix\n8 - Importar tudo \n\n0 - Sair")
             escolha = input()
             processarMenu(escolha)
 			

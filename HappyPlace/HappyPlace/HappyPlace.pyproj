@@ -84,6 +84,9 @@
     <Compile Include="services\servicosEspecializadosService.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="services\toneAnalyserService.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="utils\funcoesString.py">
       <SubType>Code</SubType>
     </Compile>

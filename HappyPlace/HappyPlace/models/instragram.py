@@ -1,9 +1,11 @@
 class instragram(object):
     """description of class"""
+    id = 0
     latitude = 0.0
     longitude = 0.0
     cnpj = ""
     tag = ""
+    sentimento = ""
 
     def __init__(self, latitude, longitude, cnpj, tag):
         self.latitude = latitude
