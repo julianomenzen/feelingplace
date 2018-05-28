@@ -1,4 +1,5 @@
 from databaseService import *
+from instragram import *
 
 class instagramRepository(object):
     """description of class"""
@@ -8,11 +9,11 @@ class instagramRepository(object):
         executarComando(comando)
 
     def atualizarSentimento(self, model):
-        comando = "update tags set sentimento = %s where id = %s"  % (model.emocao, model.id )
+        comando = "update tags set emocao = '%s' where id = %s"  % (model.sentimento, model.id )
         executarComando(comando)
 
     def consultarTudo(self):
-        linhas = SelecionarRegistros("select id, latitude, longitude, cnpj, tag, sentimento  from tags ")
+        linhas = SelecionarRegistros("select id, latitude, longitude, cnpj, tag, emocao  from tags ")
 
         arr = []
         for linha in linhas:

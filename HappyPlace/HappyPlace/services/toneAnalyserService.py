@@ -1,4 +1,5 @@
 from instagramRepository import *
+from instragram import *
 
 class toneAnalyserService(object):
     """description of class"""
