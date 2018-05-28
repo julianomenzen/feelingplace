@@ -155,7 +155,7 @@ def criarTabelaEspabelecimentosEspecializados():
     executarComando(comando)
 
 def criarTabelaTags():
-    comando = "create table tags (id serial, latitude decimal(15,6), longitude decimal(15,6), cnpj varchar(512), tag varchar(512));"
+    comando = "create table tags (id serial, latitude decimal(15,6), longitude decimal(15,6), cnpj varchar(512), tag varchar(512), emocao varchar(512));"
     comando = comando + "delete from tags";
     executarComando(comando)
 
