@@ -9,7 +9,7 @@ class toneAnalyserService(object):
        listaTags = instaRepository.consultarTudo()
        for tagInsta in listaTags:
            #busca o sentimento
-           tagInsta.emocao = "felicidade"
+           tagInsta.sentimento = "felicidade"
            #atualizar a tag 
            instaRepository.atualizarSentimento(tagInsta)
        

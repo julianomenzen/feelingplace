@@ -8,18 +8,18 @@ class instagramRepository(object):
         executarComando(comando)
 
     def atualizarSentimento(self, model):
-        comando = "update tags set emocao = %s where id = %s"  % (model.emocao, model.id )
+        comando = "update tags set sentimento = %s where id = %s"  % (model.emocao, model.id )
         executarComando(comando)
 
     def consultarTudo(self):
-        linhas = SelecionarRegistros("select id, latitude, longitude, cnpj, tag, emocao  from tags ")
+        linhas = SelecionarRegistros("select id, latitude, longitude, cnpj, tag, sentimento  from tags ")
 
         arr = []
         for linha in linhas:
             inst = instragram(linha[1], linha[2], linha[3], linha[4])
             inst.id = linha[0]
-            inst.emocao =  linha[5]
-            arr.append(emocao)
+            inst.sentimento =  linha[5]
+            arr.append(inst)
 
         return arr
 
